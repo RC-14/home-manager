@@ -18,7 +18,7 @@
     let
       user = rec {
         name = "RC-14";
-	email = "61058098+RC-14@users.noreply.github.com";
+        email = "61058098+RC-14@users.noreply.github.com";
         userName = "rc-14";
         homePath = "/Users/${userName}";
       };
