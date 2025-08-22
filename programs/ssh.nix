@@ -10,6 +10,10 @@ in {
         identitiesOnly = true;
         identityFile = [ "${sshDir}/id_ed25519" ];
       };
+      "your-storagebox.de" = {
+        identitiesOnly = true;
+        identityFile = [ "${sshDir}/id_rsa" ];
+      };
     };
   };
 }
