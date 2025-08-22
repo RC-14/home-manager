@@ -45,6 +45,7 @@
     ffmpeg
     killall
     rar
+    sshfs
     static-web-server
     tree
     unzip
