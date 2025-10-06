@@ -1,6 +1,7 @@
 { pkgs, scripts, ... }: {
   imports = [
     ./git.nix
+    ./gpg.nix
     ./kitty.nix
     ./mpv.nix
     ./neovim.nix
