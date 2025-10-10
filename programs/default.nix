@@ -45,6 +45,7 @@
     curl
     ffmpeg
     killall
+    nodejs
     rar
     sshfs
     static-web-server
