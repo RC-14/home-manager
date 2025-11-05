@@ -19,6 +19,10 @@ in {
         identitiesOnly = true;
         identityFile = [ "${sshDir}/id_rsa" ];
       };
+      "git.fh-aachen.de" = {
+        identitiesOnly = true;
+        identityFile = [ "${sshDir}/id_rsa" ];
+      };
     };
   };
 }
