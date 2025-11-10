@@ -7,6 +7,7 @@
     shell.enableShellIntegration = true;
 
     shellAliases = {
+      flake = "nix flake";
       ls = "ls --color=auto";
       l = "ls";
       ll = "ls -lh";
