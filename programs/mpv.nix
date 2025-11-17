@@ -35,14 +35,10 @@
       mkdir -p $out
       cd $out
 
-      # Applications
-      mkdir Applications
-      ln -s /Applications/mpv.app Applications/mpv.app
-      
       # bin
       mkdir bin
-      ln -s /Applications/mpv.app/Contents/MacOS/mpv bin/mpv
-      # I don't know where to find the rest (and its not important to me)
+      ln -s /opt/homebrew/bin/mpv bin/mpv
+      # I don't know where to find the rest if it's even there and its not important to me
     '';
   };
 }
