@@ -1,4 +1,4 @@
-{ user, ... }: {
+{ pkgs, user, ... }: {
   home.username = user.userName;
   home.homeDirectory = user.homePath;
 
@@ -6,6 +6,8 @@
   programs.home-manager.enable = true;
 
   nixpkgs.config.allowUnfree = true;
+
+  nix.package = pkgs.nix;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
