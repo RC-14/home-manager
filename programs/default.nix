@@ -8,6 +8,7 @@
     ./nh.nix
     ./ssh.nix
     ./wireproxy.nix
+    ./yazi
   ];
 
   programs = {

@@ -11,32 +11,52 @@
       url = "github:RC-14/scripts";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    yazi.url = "github:sxyazi/yazi";
+    yazi-plugins-repo = {
+      url = "github:yazi-rs/plugins";
+      flake = false;
+    };
   };
 
-  outputs =
-    { nixpkgs, home-manager, scripts, ... }@inputs:
-    let
-      user = rec {
-        name = "RC-14";
-        email = "61058098+RC-14@users.noreply.github.com";
-        userName = "rc-14";
-        homePath = "/Users/${userName}";
-      };
-      flakePath = "${user.homePath}/github/RC-14/home-manager";
-      system = "aarch64-darwin";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in
-    {
-      homeConfigurations.${user.userName} = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+  outputs = { self, nixpkgs, home-manager, scripts, yazi, yazi-plugins-repo }: let
+    user = rec {
+      name = "RC-14";
+      email = "61058098+RC-14@users.noreply.github.com";
+      userName = "rc-14";
+      homePath = "/Users/${userName}";
+    };
+    flakePath = "${user.homePath}/github/RC-14/home-manager";
+    system = "aarch64-darwin";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
+    homeConfigurations.${user.userName} = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
 
-        modules = [
-          ./home.nix
-          ./programs
-          ./shell
-        ];
+      modules = [
+        # Use bleeding edge Yazi directly from the main branch
+        {
+          nixpkgs.overlays = [ yazi.overlays.default ];
+          nix.settings = {
+            extra-substituters = [ "https://yazi.cachix.org" ];
+            extra-trusted-public-keys = [ "yazi.cachix.org-1:Dcdz63NZKfvUCbDGngQDAZq6kOroIrFoyO064uvLh8k=" ];
+          };
+        }
 
-        extraSpecialArgs = { inherit system user flakePath; scripts = scripts.packages.${system}; };
+        # Load my config
+        ./home.nix
+        ./programs
+        ./shell
+      ];
+
+      extraSpecialArgs = {
+        inherit
+          system
+          user
+          flakePath
+          yazi-plugins-repo;
+
+        scripts = scripts.packages.${system};
       };
     };
+  };
 }
