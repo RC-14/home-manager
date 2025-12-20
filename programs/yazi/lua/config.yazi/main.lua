@@ -5,7 +5,11 @@
 ]]--
 
 -- Full Border
-require("full-border"):setup { type = ui.Border.ROUNDED }
+xpcall(function()
+  require("full-border"):setup { type = ui.Border.ROUNDED }
+end, function()
+  print("! Full Border plugin is broken !")
+end)
 
 -- Git
 -- require("git"):setup()
