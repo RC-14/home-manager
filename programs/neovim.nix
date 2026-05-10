@@ -6,5 +6,7 @@
     vimAlias = true;
     vimdiffAlias = true;
     withNodeJs = true;
+    withRuby = true;
+    withPython3 = true;
   };
 }
