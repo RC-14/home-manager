@@ -126,11 +126,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1776563865,
-        "narHash": "sha256-UV/npftXOxa8BcAIA5p/sS8+feHuwpxfFmsqyXtyqrY=",
+        "lastModified": 1778857493,
+        "narHash": "sha256-uwq4URxf+iuXSnFxAdbDsrbHr3ZJc+hAFEDe6rbRsdE=",
         "owner": "RC-14",
         "repo": "scripts",
-        "rev": "b23d2143f55792a9fd2e2f4ac7e43e85146c44a4",
+        "rev": "e6e71d639e5ac2e112ef88301b88b49d4618f077",
         "type": "github"
       },
       "original": {
