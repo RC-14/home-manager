@@ -52,6 +52,7 @@
     static-web-server
     tree
     unzip
+    wakeonlan
     wget
     zip
   ] ++ [ scripts.default ];
