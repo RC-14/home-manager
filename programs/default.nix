@@ -42,6 +42,7 @@
   };
 
   home.packages = with pkgs; [
+    bun
     coreutils
     curl
     ffmpeg
